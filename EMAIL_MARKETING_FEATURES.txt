@@ -1,0 +1,128 @@
+==========================================
+  EMAIL MARKETING FEATURES
+==========================================
+
+NEW FEATURES ADDED:
+
+1. CAMPAIGNS MANAGEMENT
+   - Create and manage email campaigns
+   - Track campaign performance (sent, opens, clicks)
+   - Schedule campaigns
+   - Status: draft, scheduled, sending, sent, paused
+   - Access: admin/campaigns.php
+
+2. EMAIL TEMPLATES
+   - Create reusable email templates
+   - HTML content support
+   - Use variables: {TRACKING_PIXEL}, {TRACKING_LINK}
+   - Access: admin/campaigns.php (Templates tab)
+
+3. UNSUBSCRIBE FUNCTIONALITY
+   - Users can unsubscribe from emails
+   - Unsubscribe page: unsubscribe.php?email=xxx&hash=xxx
+   - API: POST api/unsubscribe.php
+   - Automatic tracking in database
+   - Respect unsubscribe list when sending
+
+4. BOUNCE HANDLING
+   - Track hard/soft bounces
+   - Store bounce reasons
+   - Identify problematic emails
+   - Table: bounces
+
+5. REPORTS & ANALYTICS
+   - Comprehensive statistics dashboard
+   - Export to CSV (users, opens, clicks)
+   - Country-wise analytics
+   - Daily statistics (last 7 days)
+   - Access: admin/reports.php
+
+6. CAMPAIGN RECIPIENTS TRACKING
+   - Track who received which campaign
+   - Individual open/click tracking per campaign
+   - Bounce and unsubscribe tracking per campaign
+
+7. SEGMENTATION (Database ready)
+   - Create user segments
+   - Filter users by conditions
+   - Target specific groups
+
+HOW TO USE:
+
+1. SETUP:
+   - Run: database/email_marketing.sql
+   - This creates all marketing tables
+
+2. CREATE TEMPLATE:
+   - Go to: admin/campaigns.php
+   - Click "Templates" tab
+   - Create template with HTML
+   - Use {TRACKING_PIXEL} and {TRACKING_LINK} variables
+
+3. CREATE CAMPAIGN:
+   - Go to: admin/campaigns.php
+   - Create new campaign
+   - Select template (optional)
+   - Set status and schedule
+
+4. ADD UNSUBSCRIBE LINK:
+   In your email template:
+   <a href="https://yourdomain.com/unsubscribe.php?email={EMAIL}&hash={HASH}">Unsubscribe</a>
+
+5. VIEW REPORTS:
+   - Go to: admin/reports.php
+   - See all statistics
+   - Export data to CSV
+
+EMAIL TEMPLATE EXAMPLE:
+
+<html>
+<body>
+    <h1>Hello {NAME}!</h1>
+    <p>Check out our offer:</p>
+    <a href="{TRACKING_LINK}">Click Here</a>
+    
+    <!-- Tracking pixel -->
+    {TRACKING_PIXEL}
+    
+    <!-- Unsubscribe link -->
+    <p><a href="https://yourdomain.com/unsubscribe.php?email={EMAIL}&hash={HASH}">Unsubscribe</a></p>
+</body>
+</html>
+
+API ENDPOINTS:
+
+1. Unsubscribe:
+   POST api/unsubscribe.php
+   Body: {"email": "user@example.com", "hash": "abc123", "reason": "optional"}
+
+2. Generate Links (updated):
+   POST api/generate.php
+   Returns: tracking_link + tracking_pixel + unsubscribe_link
+
+3. Stats (updated):
+   GET api/stats.php
+   Returns: includes unsubscribe count, bounce count
+
+BEST PRACTICES:
+
+1. Always include unsubscribe link in emails
+2. Check unsubscribes before sending
+3. Handle bounces properly
+4. Use templates for consistency
+5. Track campaign performance
+6. Export reports regularly
+7. Clean bounce list periodically
+
+DATABASE TABLES:
+
+- campaigns: Email campaigns
+- email_templates: Reusable templates
+- unsubscribes: Unsubscribed users
+- bounces: Bounced emails
+- campaign_recipients: Who received which campaign
+- segments: User segments
+- user_segments: User-segment mapping
+
+==========================================
+

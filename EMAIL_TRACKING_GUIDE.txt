@@ -1,0 +1,64 @@
+==========================================
+  EMAIL OPEN TRACKING GUIDE
+==========================================
+
+HOW TO TRACK EMAIL OPENS:
+
+1. DATABASE SETUP:
+   - Run: database/schema_update.sql
+   - This creates email_opens table
+
+2. ADD TRACKING PIXEL TO YOUR EMAILS:
+
+   In your email HTML, add this image at the end:
+   
+   <img src="https://yourdomain.com/track.php?mb=HASH" width="1" height="1" style="display:none;">
+   
+   Replace HASH with the user's hash from database.
+
+3. EXAMPLE EMAIL TEMPLATE:
+
+   <html>
+   <body>
+       <h1>Hello!</h1>
+       <p>Check out our offer:</p>
+       <a href="https://yourdomain.com/index.php?mb=abc123hash">Click Here</a>
+       
+       <!-- Tracking pixel (invisible) -->
+       <img src="https://yourdomain.com/track.php?mb=abc123hash" width="1" height="1" style="display:none;">
+   </body>
+   </html>
+
+4. HOW IT WORKS:
+
+   - When email is opened, the tracking pixel loads
+   - System records: email, hash, IP, country, timestamp
+   - Admin panel shows: ACTIVE (opened) vs INACTIVE (not opened)
+
+5. VIEW RESULTS:
+
+   - Admin Panel: admin/index.php
+   - See Active/Inactive users
+   - See who opened and when
+   - View statistics
+
+6. API USAGE:
+
+   Generate links with tracking pixel:
+   POST api/generate.php
+   Returns: tracking_link + tracking_pixel for each email
+
+7. STATUS MEANINGS:
+
+   ACTIVE = User opened the email (tracking pixel loaded)
+   INACTIVE = User didn't open the email (pixel never loaded)
+
+8. NOTES:
+
+   - Tracking pixel is 1x1 transparent image (invisible)
+   - Some email clients block images (may show as inactive)
+   - Each email should have unique hash
+   - Same email = same hash (reusable)
+
+==========================================
+

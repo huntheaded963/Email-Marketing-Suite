@@ -1,0 +1,70 @@
+==========================================
+  MAILBROTRACK - MAILING GUIDE
+==========================================
+
+HOW TO USE WITH EMAIL CAMPAIGNS:
+
+1. ADD USERS (Choose one method):
+
+   A) Via Admin Panel:
+      - Go to: admin/index.php
+      - Login with password (default: admin123 - CHANGE IT!)
+      - Add single user or bulk add users
+      - Copy tracking links
+
+   B) Via API:
+      - POST to: api/generate.php?api_key=your_key
+      - Send JSON: {"emails": ["email1@example.com"]}
+      - Get tracking links in response
+
+2. USE TRACKING LINKS IN EMAILS:
+
+   Example email template:
+   -----------------------
+   Subject: Special Offer!
+   
+   Hi,
+   
+   Check out this amazing offer:
+   https://yourdomain.com/index.php?mb=abc123hash456
+   
+   Best regards
+
+3. TRACK RESULTS:
+
+   - View stats in admin panel
+   - Or use API: GET api/stats.php?api_key=your_key
+   - See clicks, countries, dates, etc.
+
+4. WORKFLOW EXAMPLE:
+
+   Step 1: Prepare email list
+   Step 2: Add users to system (admin or API)
+   Step 3: Get tracking links for each email
+   Step 4: Replace normal links in email with tracking links
+   Step 5: Send emails
+   Step 6: Monitor clicks in admin panel
+
+5. IMPORTANT NOTES:
+
+   - Each email gets unique hash
+   - Same email = same hash (reusable)
+   - Links track: email, country, date/time
+   - Redirects based on country (configurable)
+   - All data saved in database
+
+6. API EXAMPLE (PHP):
+
+   $emails = ['user1@example.com', 'user2@example.com'];
+   $data = ['emails' => $emails];
+   
+   $ch = curl_init('https://yourdomain.com/api/generate.php?api_key=KEY');
+   curl_setopt($ch, CURLOPT_POST, true);
+   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+   curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+   $response = curl_exec($ch);
+   
+   // Use $response to get tracking links
+
+==========================================
+
