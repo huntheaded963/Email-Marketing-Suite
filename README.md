@@ -129,7 +129,7 @@ Whether you're a small business owner, marketing professional, or enterprise tea
 
 ### Step 1: Clone or Download
 ```bash
-git clone <repository-url>
+git clone https://github.com/zougar99/Email-Marketing-Suite.git
 cd Email-Marketing-Suite
 ```
 
