@@ -1,5 +1,7 @@
 # 📧 Email Marketing Suite ✉️
 
+[![GitHub](https://img.shields.io/badge/GitHub-zougar99%2FEmail--Marketing--Suite-blue)](https://github.com/zougar99/Email-Marketing-Suite)
+
 Professional Email Marketing Desktop Application with GUI 🚀
 
 ---
@@ -129,7 +131,7 @@ Whether you're a small business owner, marketing professional, or enterprise tea
 
 ### Step 1: Clone or Download
 ```bash
-git clone https://github.com/zougar99/Email-Marketing-Suite.git
+git clone <repository-url>
 cd Email-Marketing-Suite
 ```
 
@@ -261,7 +263,13 @@ This project is for educational and personal use.
 
 ## 👨‍💻 Author
 
-Created with ❤️
+Created with ❤️ by [zougar99](https://github.com/zougar99)
+
+---
+
+## 🔗 GitHub Repository
+
+🐙 GitHub: https://github.com/zougar99/Email-Marketing-Suite
 
 ---
 
